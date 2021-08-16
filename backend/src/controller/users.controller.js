@@ -1,5 +1,8 @@
 import User from "../model/User";
 import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const MY_SECRET_KEY = process.env.SECRET_KEY;
 

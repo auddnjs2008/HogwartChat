@@ -4,10 +4,9 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import userRouter from "./Router/userRouter";
 
-const app = express();
-const PORT = 3000;
-
 dotenv.config();
+const app = express();
+const PORT = 4000;
 
 app.use(express.json());
 app.use(logger("dev"));
