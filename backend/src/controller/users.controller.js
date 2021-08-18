@@ -19,7 +19,8 @@ export const createToken = async (req, res, next) => {
           expiresIn: "1h",
         }
       );
-      res.status(201).json({ result: "ok", token });
+      res.cookie("user", token);
+      res.status(201).json({ result: "ok", token, user });
     } else {
       res.status(400).json({ error: "invalid user" });
     }
@@ -39,5 +40,3 @@ export const createUser = async (req, res, next) => {
     next(e);
   }
 };
-
-console.log("");
