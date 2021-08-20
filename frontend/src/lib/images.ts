@@ -1,6 +1,6 @@
 type badge = {
   [key: string]: string;
-  gryffindor: string;
+  griffindor: string;
   slytherin: string;
   hufflepuff: string;
   ravenclaw: string;
@@ -12,7 +12,7 @@ type images = {
 
 const imageUrls: images = {
   badge: {
-    gryffindor:
+    griffindor:
       "https://hogwartchat.s3.ap-northeast-2.amazonaws.com/%EA%B7%B8%EB%A6%AC%ED%95%80%EB%8F%84%EB%A5%B4.png",
     slytherin:
       "https://hogwartchat.s3.ap-northeast-2.amazonaws.com/%EC%8A%AC%EB%A6%AC%EB%8D%B0%EB%A6%B0.png",

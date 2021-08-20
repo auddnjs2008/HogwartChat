@@ -1,5 +1,7 @@
 import React from "react";
+import { useEffect } from 'react';
 import styled from "styled-components";
+import socket from '../../lib/socket';
 import HallChatBox from './HallChatBox';
 
 
@@ -12,7 +14,6 @@ const HallWrapper = styled.div`
 const HallComponent :React.FC = () =>{
 
    
-
    return <HallWrapper>
        <HallChatBox></HallChatBox>
    </HallWrapper>

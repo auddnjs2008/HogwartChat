@@ -1,10 +1,11 @@
 import React from "react";
 import { useRef } from 'react';
 import { useState } from 'react';
-import { RootStateOrAny, useSelector } from 'react-redux';
+import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 import styled from "styled-components";
 
 import sendMessage from '../../lib/function/sendMessage';
+import { receiveChat, sendChat } from '../../modules/socket';
 
 const ChatWrapper = styled.div`
     width:48%;
@@ -79,10 +80,12 @@ const HallChatBox :React.FC =() =>{
     const [text,setText] =useState("");
     const hallChatUl=useRef<HTMLUListElement>(null);
     const {name,dormitory} = useSelector(({auth}:RootStateOrAny) =>({name:auth.name,dormitory:auth.dormitory})); 
-
+    const dispatch = useDispatch();
     const onSubmit = (e:React.SyntheticEvent<HTMLFormElement>) =>{
         e.preventDefault();
         sendMessage(text,name,dormitory,hallChatUl);
+        dispatch(sendChat({message:text}));
+        dispatch(receiveChat());
         setText("");
     }
 
@@ -91,7 +94,7 @@ const HallChatBox :React.FC =() =>{
         setText(message);
     }
 
- 
+   
 
     return <ChatWrapper>
         <ul ref={hallChatUl}>
